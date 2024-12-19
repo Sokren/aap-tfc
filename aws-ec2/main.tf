@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    hcp = {
+      source  = "hashicorp/hcp"
+      version = "~> 0.99.0"
+    }
+  }
+}
+
 data "terraform_remote_state" "aws_infra" {
   backend = "remote"
   config = {
