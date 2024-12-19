@@ -20,14 +20,6 @@ resource "tfe_variable" "aap_tfc_org" {
   description  = "Terraform Cloud Org Name"
 }
 
-resource "tfe_variable" "aap_aws_region" {
-  key          = "region"
-  value        = var.aws_region
-  category     = "terraform"
-  workspace_id = tfe_workspace.aap.id
-  description  = "AWS region"
-}
-
 resource "tfe_variable" "aap_job_template_id" {
   key          = "job_template_id"
   value        = "14"
