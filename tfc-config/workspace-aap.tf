@@ -28,7 +28,7 @@ resource "tfe_variable" "aap_aws_region" {
   description  = "AWS region"
 }
 
-resource "tfe_variable" "aap_aws_region" {
+resource "tfe_variable" "aap_job_template_id" {
   key          = "job_template_id"
   value        = "14"
   category     = "terraform"
