@@ -1,7 +1,7 @@
 resource "tfe_organization_run_task" "hcp_packer" {
   organization = var.tfc_org
   url          = var.hcp_packer_url
-  name         = "HCP-Packer"
+  name         = "HCP-Packer-AAP"
   hmac_key     = var.hcp_packer_hmac
   enabled      = true
   description  = "HCP Packer run task"
