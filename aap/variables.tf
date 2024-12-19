@@ -1,3 +1,7 @@
+variable "tfc_org" {
+  type = string
+}
+
 variable "aap_host_url" {
   type = string
 }
