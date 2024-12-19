@@ -1,0 +1,44 @@
+---
+- name: Change Apache2 listening port and deploy new website version
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure Apache2 is installed
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Change Apache2 listening port from 80 to 8080
+      lineinfile:
+        path: /etc/apache2/ports.conf
+        regexp: '^Listen 80'
+        line: 'Listen 8080'
+        state: present
+
+    - name: Update default site configuration to use port 8080
+      lineinfile:
+        path: /etc/apache2/sites-available/000-default.conf
+        regexp: 'VirtualHost \*:80'
+        line: '<VirtualHost *:8080>'
+        state: present
+
+    - name: Restart Apache2 to apply changes
+      service:
+        name: apache2
+        state: restarted
+
+    - name: Cloner le dépôt GitHub
+      git:
+        repo: "https://github.com/Sokren/website-rh-hc.git"
+        dest: /tmp/website
+        version: main
+
+    - name: Déployer la nouvelle version du site web
+      copy:
+        src: "/tmp/website/Version-RH-HC/"
+        dest: "/var/www/html"
+        owner: www-data
+        group: www-data
+        mode: '0755'
+        remote_src: yes
