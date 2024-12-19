@@ -29,15 +29,6 @@ resource "aws_subnet" "public" {
   }
 }
 
-resource "aws_db_subnet_group" "test" {
-  name       = "test"
-  subnet_ids = aws_subnet.public[*].id
-
-  tags = {
-    Name = "Test"
-  }
-}
-
 
 # Public Routes
 resource "aws_route_table" "public" {
