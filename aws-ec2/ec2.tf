@@ -101,17 +101,6 @@ resource "aws_instance" "target" {
   tags = {
     Name = "${var.tag}-target-${random_pet.test.id}-${count.index}"
   }
-  user_data = <<EOF
-#!/bin/bash
-sudo bash -c "echo ${data.terraform_remote_state.hcp_vault_manage.outputs.vault_boundary_ssh_ca} > /etc/ssh/ca-key.pub" \
-sudo chown 1000:1000 /etc/ssh/ca-key.pub
-sudo chmod 644 /etc/ssh/ca-key.pub
-sudo bash -c "echo TrustedUserCAKeys /etc/ssh/ca-key.pub >> /etc/ssh/sshd_config"
-sudo systemctl restart sshd.service
-#sudo apt-get install apache2 -y
-#sudo systemctl enable apache2.service
-#sudo systemctl start apache2.service
-  EOF
 }
 
 resource "aws_eip_association" "eip_assoc1" {
