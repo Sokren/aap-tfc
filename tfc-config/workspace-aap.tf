@@ -29,7 +29,7 @@ resource "tfe_variable" "aap_aws_region" {
 }
 
 data "tfe_variable_set" "rh-aap" {
-  name         = "AAP"
+  name         = "RH-AAP"
   organization = data.tfe_organization.org.name
 }
 
