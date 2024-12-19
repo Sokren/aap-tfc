@@ -13,7 +13,7 @@ data "terraform_remote_state" "aws-ec2" {
   config = {
     organization = var.tfc_org
     workspaces = {
-      name = "AAP-TFE-aws-ec2"
+      name = "AAP-TFC-aws-ec2"
     }
   }
 }

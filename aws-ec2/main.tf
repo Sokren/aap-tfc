@@ -12,7 +12,7 @@ data "terraform_remote_state" "aws_infra" {
   config = {
     organization = var.tfc_org
     workspaces = {
-      name = "AAP-TFE-aws-infra"
+      name = "AAP-TFC-aws-infra"
     }
   }
 }
