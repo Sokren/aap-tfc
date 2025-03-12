@@ -3,7 +3,7 @@ terraform {
     aap = {
 #      source  = "tfo-apj-demos/aap"
 #      version = "1.0.2"
-      source  = "ansible/terraform-provider-aap"
+      source  = "ansible/aap"
       version = "1.1.2"
     }
   }
