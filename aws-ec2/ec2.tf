@@ -18,16 +18,6 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-# data "hcp_packer_iteration" "boundary_target" {
-#   bucket_name = "boundary-target"
-#   channel     = "latest"
-# }
-
-# data "hcp_packer_image" "ubuntu_us_east_1" {
-#   bucket_name    = "boundary-target"
-#   cloud_provider = "aws"
-#   iteration_id   = data.hcp_packer_iteration.boundary_target.ulid
-#   region         = var.region
 # }
 
 data "hcp_packer_artifact" "apache-website" {
