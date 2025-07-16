@@ -18,8 +18,6 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-# }
-
 data "hcp_packer_artifact" "apache-website" {
   bucket_name   = "apache-website"
   channel_name  = "latest"
